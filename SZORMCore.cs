@@ -10,7 +10,7 @@ using SZORM.Factory;
 namespace SZORM
 {
     /// <summary>
-    /// szorm核心类,用于替换原szorm类
+    /// szorm核心类
     /// </summary>
     public static class SZORMCore
     {

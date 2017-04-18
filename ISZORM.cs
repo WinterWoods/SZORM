@@ -10,7 +10,7 @@ namespace SZORM
     public interface ISZORM
     {
         DbContext Context { get; }
-        //定义sql 如 where  select 
+        //定义sql111111111111 如 where  select  
         Expression ExpressionWhere { get; set; }
         List<string> ExpressionSelect { get; set; }
         Dictionary<string, string> ExpressionOrderBy { get; set; }
