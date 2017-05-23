@@ -1,0 +1,19 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace SZORM.DbExpressions
+{
+    public class DbFromTableExpression : DbMainTableExpression
+    {
+        public DbFromTableExpression(DbTableSegment table)
+            : base(DbExpressionType.FromTable, table)
+        {
+        }
+        public override T Accept<T>(DbExpressionVisitor<T> visitor)
+        {
+            return visitor.Visit(this);
+        }
+    }
+}
