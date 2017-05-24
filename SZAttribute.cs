@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 
@@ -10,10 +11,6 @@ namespace SZORM
     /// </summary>
     public sealed class SZTableAttribute : Attribute
     {
-        /// <summary>
-        /// 默认为entity名字,设定为新名字
-        /// </summary>
-        public string TableName { get; set; }
         /// <summary>
         /// 显示名字,出现异常信息显示表名,为空时显示TableName
         /// </summary>
@@ -32,10 +29,6 @@ namespace SZORM
     /// </summary>
     public sealed class SZColumnAttribute : Attribute
     {
-        /// <summary>
-        /// 默认可以为空,为空时属性名
-        /// </summary>
-        public string ColumnName { get; set; }
         private bool isKey = false;
         /// <summary>
         /// 是否主键,默认值为false
@@ -108,29 +101,13 @@ namespace SZORM
         /// </summary>
         public int NumberPrecision { get; set; }
         /// <summary>
-        /// 默认值
-        /// </summary>
-        private string defaultValue="";
-
-        public string DefaultValue
-        {
-            get { return defaultValue; }
-            set { defaultValue = value; }
-        }
-
-        /// <summary>
         /// 字段描述信息
         /// </summary>
         public string Information { get; set; }
+        DbType? _dbType;/* -1=Unspecified */
         /// <summary>
-        /// 用于存储数据库值
+        /// -1 表示未指定确切的值，用该属性的时候务必做 -1 判断。
         /// </summary>
-        private string columnType="";
-
-        public string ColumnType
-        {
-            get { return columnType; }
-            set { columnType = value; }
-        }
+        public DbType? DbType { get { return this._dbType; } set { this._dbType = value; } }
     }
 }

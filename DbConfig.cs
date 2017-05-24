@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace SZORM
 {
@@ -10,10 +11,6 @@ namespace SZORM
     /// </summary>
     public class DbConfig
     {
-        /// <summary>
-        /// 配置文件中 连接字符串的名字,或者自定义名字
-        /// </summary>
-        public string SettingName { get; set; }
         /// <summary>
         /// 连接字符串
         /// </summary>
