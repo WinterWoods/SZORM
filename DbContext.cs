@@ -26,6 +26,7 @@ namespace SZORM
         internal DbConfig _dbConfig;
         IStructure _dbStructCheck;
         internal ConcurrentDictionary<Type, TypeDescriptor> _typeDescriptors;
+        IsolationLevel _il;
 
         internal IDbContextServiceProvider _dbContextServiceProvider;
         /// <summary>
@@ -67,6 +68,7 @@ namespace SZORM
         }
         private void Init(string ConnectionStr, string ProviderName, IsolationLevel il)
         {
+            _il = il;
             Checks.NotNull(ConnectionStr, "ConnectionStr");
             Checks.NotNull(ProviderName, "ProviderName");
             //开始初始化
@@ -81,7 +83,7 @@ namespace SZORM
             //初始化数据链接
             InitDb();
             //初始化数据库结构
-            InternalAdoSession.BeginTransaction(il);
+            InternalAdoSession.BeginTransaction(_il);
         }
         
         
@@ -148,6 +150,8 @@ namespace SZORM
         public void Save()
         {
             this._internalAdoSession.CommitTransaction();
+            //初始化数据库结构
+            this._internalAdoSession.BeginTransaction(_il);
         }
         void CheckDisposed()
         {
