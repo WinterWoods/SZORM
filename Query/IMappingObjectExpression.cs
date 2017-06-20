@@ -7,7 +7,6 @@ using System.Reflection;
 using System.Text;
 using SZORM.DbExpressions;
 using SZORM.Query.Mapping;
-using SZORM.Utility;
 
 namespace SZORM.Query
 {

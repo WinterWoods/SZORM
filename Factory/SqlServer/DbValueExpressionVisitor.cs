@@ -87,6 +87,12 @@ namespace SZORM.Factory.SqlServer
         {
             return this.VisistDbBooleanExpression(exp);
         }
+
+        public override DbExpression Visit(DbCoalesceExpression exp)
+        {
+            return exp.Accept(this._generator);
+        }
+
         // <=
         public override DbExpression Visit(DbLessThanOrEqualExpression exp)
         {

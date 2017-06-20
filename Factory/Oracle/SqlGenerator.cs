@@ -495,7 +495,16 @@ namespace SZORM.Factory.Oracle
 
             return exp;
         }
+        public override DbExpression Visit(DbCoalesceExpression exp)
+        {
+            this._sqlBuilder.Append("NVL(");
+            EnsureDbExpressionReturnCSharpBoolean(exp.CheckExpression).Accept(this);
+            this._sqlBuilder.Append(",");
+            EnsureDbExpressionReturnCSharpBoolean(exp.ReplacementValue).Accept(this);
+            this._sqlBuilder.Append(")");
 
+            return exp;
+        }
 
         // then 部分必须返回 C# type，所以得判断是否是诸如 a>1,a=b,in,like 等等的情况，如果是则将其构建成一个 case when 
         public override DbExpression Visit(DbCaseWhenExpression exp)

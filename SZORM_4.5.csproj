@@ -84,6 +84,7 @@
     <Compile Include="DbExpressions\DbBitAndExpression.cs" />
     <Compile Include="DbExpressions\DbBitOrExpression.cs" />
     <Compile Include="DbExpressions\DbCaseWhenExpression.cs" />
+    <Compile Include="DbExpressions\DbCoalesceExpression.cs" />
     <Compile Include="DbExpressions\DbColumn.cs" />
     <Compile Include="DbExpressions\DbColumnAccessExpression.cs" />
     <Compile Include="DbExpressions\DbColumnSegment.cs" />
