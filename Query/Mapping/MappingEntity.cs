@@ -37,7 +37,7 @@ namespace SZORM.Query.Mapping
             List<IValueSetter> memberSetters = new List<IValueSetter>(this.Members.Count + this.EntityMembers.Count);
             foreach (var kv in this.Members)
             {
-                IMRM mMapper = mapper.TryGetMemberMapper(kv.Key);
+                IMRM mMapper = mapper.TryGetMappingMemberMapper(kv.Key);
                 MappingMemberBinder binder = new MappingMemberBinder(mMapper, kv.Value);
                 memberSetters.Add(binder);
             }

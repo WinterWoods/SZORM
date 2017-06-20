@@ -109,5 +109,20 @@ namespace SZORM
         /// -1 表示未指定确切的值，用该属性的时候务必做 -1 判断。
         /// </summary>
         public DbType? DbType { get { return this._dbType; } set { this._dbType = value; } }
+
+        public bool NotGen
+        {
+            get
+            {
+                return notGen;
+            }
+
+            set
+            {
+                notGen = value;
+            }
+        }
+
+        private bool notGen = false;
     }
 }

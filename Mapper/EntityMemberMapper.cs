@@ -78,7 +78,7 @@ namespace SZORM.Mapper
 
         public Type Type { get; private set; }
 
-        public IMRM TryGetMemberMapper(MemberInfo memberInfo)
+        public IMRM TryGetMappingMemberMapper(MemberInfo memberInfo)
         {
             memberInfo = memberInfo.AsReflectedMemberOf(this.Type);
             IMRM mapper = null;

@@ -23,5 +23,8 @@ namespace SZORM
 
         DataTable ExecuteDataTable(string cmdText, params DbParam[] parameters);
         DataTable ExecuteDataTable(string cmdText, CommandType cmdType, params DbParam[] parameters);
+
+        IEnumerable<T> ExecuteSqlToList<T>(string cmdText, params DbParam[] parameters);
+        IEnumerable<T> ExecuteSqlToList<T>(string cmdText, CommandType cmdType, params DbParam[] parameters);
     }
 }

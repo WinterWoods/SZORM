@@ -14,6 +14,7 @@ using SZORM.Descriptors;
 using SZORM.Factory;
 using SZORM.Infrastructure;
 using SZORM.InternalExtensions;
+using SZORM.Query.Internals;
 using SZORM.Utility;
 
 namespace SZORM
@@ -193,6 +194,17 @@ namespace SZORM
                 reader.Close();
             }
             return dt;
+        }
+
+        public IEnumerable<T> ExecuteSqlToList<T>(string cmdText, params DbParam[] parameters)
+        {
+            return ExecuteSqlToList<T>(cmdText, CommandType.Text, parameters);
+        }
+
+        public IEnumerable<T> ExecuteSqlToList<T>(string cmdText, CommandType cmdType, params DbParam[] parameters)
+        {
+            Checks.NotNull(cmdText, "cmdText");
+            return new InternalSqlQuery<T>(this, cmdText, cmdType, parameters);
         }
 
         public DbSet<SZORM_Upgrade> SZORM_Upgrades { get; set; }
