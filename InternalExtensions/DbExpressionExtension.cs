@@ -154,7 +154,7 @@ namespace SZORM.InternalExtensions
             if (exp.NodeType == DbExpressionType.Parameter)
             {
                 var p = (DbParameterExpression)exp;
-                return p.Value == null || p.Value == DBNull.Value;
+                return p.Value == null  || (p.Type == typeof(string) && string.IsNullOrEmpty(p.Value.ToString())) || p.Value == DBNull.Value;
             }
 
             return false;

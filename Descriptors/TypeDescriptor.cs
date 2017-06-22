@@ -153,15 +153,20 @@ namespace SZORM.Descriptors
             if (tableFlags.Length > 0)
             {
                 SZTableAttribute = (SZTableAttribute)tableFlags.First();
-                if (SZTableAttribute.DisplayName == null)
+                if (string.IsNullOrEmpty(SZTableAttribute.TableName))
+                {
+                    SZTableAttribute.TableName = t.Name;
+                }
+                if (string.IsNullOrEmpty(SZTableAttribute.DisplayName))
                     SZTableAttribute.DisplayName = t.Name;
             }
             else
             {
                 SZTableAttribute = new SZTableAttribute();
                 SZTableAttribute.DisplayName = t.Name;
+                SZTableAttribute.TableName = t.Name;
             }
-            this.Table = new DbTable(t.Name);
+            this.Table = new DbTable(SZTableAttribute.TableName);
 
 
 

@@ -24,14 +24,16 @@ namespace SZORM.Descriptors
             SZColumnAttribute columnFlag = (SZColumnAttribute)this.MemberInfo.GetCustomAttributes(typeof(SZColumnAttribute), true).FirstOrDefault();
             if (columnFlag == null)
                 columnFlag = new SZColumnAttribute();
-            else if (columnFlag.DisplayName == null)
+            if (string.IsNullOrEmpty( columnFlag.DisplayName))
                 columnFlag.DisplayName = this.MemberInfo.Name;
+            if (string.IsNullOrEmpty(columnFlag.FieldName))
+                columnFlag.FieldName = this.MemberInfo.Name;
             if (columnFlag.IsKey)
             {
                 columnFlag.Required = true;
             }
             SZColumnAttribute = columnFlag;
-            this.Column = new DbColumn(this.MemberInfo.Name, this.MemberInfoType, columnFlag.DbType, columnFlag.MaxLength);
+            this.Column = new DbColumn(SZColumnAttribute.FieldName, this.MemberInfoType, columnFlag.DbType, columnFlag.MaxLength);
         }
 
         public SZColumnAttribute SZColumnAttribute { get; set; }

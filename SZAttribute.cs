@@ -12,6 +12,10 @@ namespace SZORM
     public sealed class SZTableAttribute : Attribute
     {
         /// <summary>
+        /// 表格名字
+        /// </summary>
+        public string TableName { get; set; }
+        /// <summary>
         /// 显示名字,出现异常信息显示表名,为空时显示TableName
         /// </summary>
         public string DisplayName { get; set; }
@@ -38,6 +42,10 @@ namespace SZORM
             get { return isKey; }
             set { isKey = value; }
         }
+        /// <summary>
+        /// 如果不设置自动使用字段名字
+        /// </summary>
+        public string FieldName { get; set; }
         private string displayName="";
         /// <summary>
         /// 显示名字,如果出现异常显示名字,为空时显示ColumnName
