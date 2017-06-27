@@ -13,7 +13,9 @@ namespace SZORM
         {
             lock (cache.SyncRoot)
             {
-                cache.Add(name, obj);
+                if (!cache.ContainsKey(name))
+                    cache.Add(name, obj);
+                
             }
         }
         public static object Get(string name)
