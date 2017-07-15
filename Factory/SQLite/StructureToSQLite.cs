@@ -81,7 +81,12 @@ namespace SZORM.Factory.SQLite
             }
             else if (column.type == typeof(string))
             {
-                result = "VARCHAR(" + column.MaxLength + ")";
+                if (column.IsText)
+                {
+                    result = "TEXT";
+                }
+                else
+                    result = "VARCHAR(" + column.MaxLength + ")";
             }
             else if (column.type == typeof(DateTime))
             {

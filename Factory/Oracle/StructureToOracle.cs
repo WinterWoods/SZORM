@@ -131,6 +131,11 @@ namespace SZORM.Factory.Oracle
             }
             else if (column.type == typeof(string))
             {
+                if (column.IsText)
+                {
+                    result = "CLOB";
+                }
+                else
                 result = "VARCHAR2(" + column.MaxLength + ")";
             }
             else if (column.type == typeof(DateTime))

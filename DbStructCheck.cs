@@ -159,9 +159,8 @@ namespace SZORM
             {
                 model.type = memberDescriptor.MemberInfoType;
             }
-            
-            
-           
+
+            model.IsText = memberDescriptor.SZColumnAttribute.MaxLength == 0;
             model.MaxLength = memberDescriptor.SZColumnAttribute.MaxLength;
             model.NumberPrecision = memberDescriptor.SZColumnAttribute.NumberPrecision;
             model.NumberSize = memberDescriptor.SZColumnAttribute.NumberSize;

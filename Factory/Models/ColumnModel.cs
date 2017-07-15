@@ -10,6 +10,7 @@ namespace SZORM.Factory.Models
         public string Name { get; set; }
         public bool Required { get; set; }
         public bool IsKey { get; set; }
+        public bool IsText { get; set; }
         /// <summary>
         /// 只能在查询的时候使用
         /// </summary>

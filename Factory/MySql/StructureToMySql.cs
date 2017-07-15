@@ -94,6 +94,10 @@ namespace SZORM.Factory.MySql
             }
             else if (column.type == typeof(string))
             {
+                if (column.IsText) {
+                    result = "TEXT";
+                }
+                else
                 result = "VARCHAR(" + column.MaxLength + ")";
             }
             else if (column.type == typeof(DateTime))

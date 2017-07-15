@@ -91,7 +91,7 @@ namespace SZORM
             get { return minLength; }
             set { minLength = value; }
         }
-        private int maxLength = 4000;
+        private int maxLength = 0;
         /// <summary>
         /// 最大值
         /// </summary>
