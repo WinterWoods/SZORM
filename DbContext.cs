@@ -212,9 +212,11 @@ namespace SZORM
     public class SZORM_Upgrade
     {
         public int? Version { get; set; }
+        [SZColumn(MaxLength =4000)]
         public string UPContent { get; set; }
         public DateTime? UPTime { get; set; }
         public DateTime? ReleaceTime { get; set; }
+        [SZColumn(MaxLength = 4000)]
         public string ErrorMsg { get; set; }
     }
 }
