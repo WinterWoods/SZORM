@@ -88,7 +88,8 @@ namespace SZORM
         }
         
         
-        
+
+
 
         internal InternalAdoSession InternalAdoSession
         {
@@ -108,7 +109,10 @@ namespace SZORM
         {
             this._internalAdoSession.Dispose();
         }
-
+        public void SetCommandTimeout(int time)
+        {
+            InternalAdoSession.CommandTimeout = time;
+        }
         public int ExecuteNoQuery(string cmdText, params DbParam[] parameters)
         {
             return ExecuteNoQuery(cmdText, CommandType.Text, parameters);
