@@ -268,32 +268,32 @@ namespace SZORM.Factory.SqlServer
 
         static void Method_Count(DbMethodCallExpression exp, SqlGenerator generator)
         {
-            EnsureMethodDeclaringType(exp, typeof(AggregateFunctions));
+            EnsureMethodDeclaringType(exp, typeof(SqlFun));
             Aggregate_Count(generator);
         }
         static void Method_LongCount(DbMethodCallExpression exp, SqlGenerator generator)
         {
-            EnsureMethodDeclaringType(exp, typeof(AggregateFunctions));
+            EnsureMethodDeclaringType(exp, typeof(SqlFun));
             Aggregate_LongCount(generator);
         }
         static void Method_Sum(DbMethodCallExpression exp, SqlGenerator generator)
         {
-            EnsureMethodDeclaringType(exp, typeof(AggregateFunctions));
+            EnsureMethodDeclaringType(exp, typeof(SqlFun));
             Aggregate_Sum(generator, exp.Arguments.First(), exp.Method.ReturnType);
         }
         static void Method_Max(DbMethodCallExpression exp, SqlGenerator generator)
         {
-            EnsureMethodDeclaringType(exp, typeof(AggregateFunctions));
+            EnsureMethodDeclaringType(exp, typeof(SqlFun));
             Aggregate_Max(generator, exp.Arguments.First(), exp.Method.ReturnType);
         }
         static void Method_Min(DbMethodCallExpression exp, SqlGenerator generator)
         {
-            EnsureMethodDeclaringType(exp, typeof(AggregateFunctions));
+            EnsureMethodDeclaringType(exp, typeof(SqlFun));
             Aggregate_Min(generator, exp.Arguments.First(), exp.Method.ReturnType);
         }
         static void Method_Average(DbMethodCallExpression exp, SqlGenerator generator)
         {
-            EnsureMethodDeclaringType(exp, typeof(AggregateFunctions));
+            EnsureMethodDeclaringType(exp, typeof(SqlFun));
             Aggregate_Average(generator, exp.Arguments.First(), exp.Method.ReturnType);
         }
 

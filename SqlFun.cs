@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SZORM
 {
-    public static class AggregateFunctions
+    public static class SqlFun
     {
         public static int Count()
         {

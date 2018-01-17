@@ -64,7 +64,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AggregateFunctions.cs" />
+    <Compile Include="SqlFun.cs" />
     <Compile Include="Cache.cs" />
     <Compile Include="Core\DbCommandFactor.cs" />
     <Compile Include="Core\Emit\ClassGenerator.cs" />
