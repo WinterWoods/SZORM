@@ -203,6 +203,15 @@ namespace SZORM.Factory.SQLite
             AppendAggregateFunction(generator, exp, retType, "AVG", true);
         }
 
+        static void IfNull(SqlGenerator generator, DbExpression exp, Type retType)
+        {
+            generator._sqlBuilder.Append("IFNULL(");
+            exp.Accept(generator);
+            generator._sqlBuilder.Append(",");
+            generator._sqlBuilder.Append("0");
+            generator._sqlBuilder.Append(")");
+        }
+
         static void AppendAggregateFunction(SqlGenerator generator, DbExpression exp, Type retType, string functionName, bool withCast)
         {
             string dbTypeString = null;

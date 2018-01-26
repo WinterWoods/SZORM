@@ -106,5 +106,46 @@ namespace SZORM
         {
             return p;
         }
+
+        public static int IfNull(int p)
+        {
+            return p;
+        }
+        public static int? IfNull(int? p)
+        {
+            return p;
+        }
+        public static long IfNull(long p)
+        {
+            return p;
+        }
+        public static long? IfNull(long? p)
+        {
+            return p;
+        }
+        public static decimal IfNull(decimal p)
+        {
+            return p;
+        }
+        public static decimal? IfNull(decimal? p)
+        {
+            return p;
+        }
+        public static double IfNull(double p)
+        {
+            return p;
+        }
+        public static double? IfNull(double? p)
+        {
+            return p;
+        }
+        public static float IfNull(float p)
+        {
+            return p;
+        }
+        public static float? IfNull(float? p)
+        {
+            return p;
+        }
     }
 }

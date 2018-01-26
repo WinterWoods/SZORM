@@ -267,6 +267,15 @@ namespace SZORM.Factory.Oracle
             AppendAggregateFunction(generator, exp, retType, "AVG", false);
         }
 
+        static void IfNull(SqlGenerator generator, DbExpression exp, Type retType)
+        {
+            generator._sqlBuilder.Append("NVL(");
+            exp.Accept(generator);
+            generator._sqlBuilder.Append(",");
+            generator._sqlBuilder.Append("0");
+            generator._sqlBuilder.Append(")");
+        }
+
         static void AppendAggregateFunction(SqlGenerator generator, DbExpression exp, Type retType, string functionName, bool withCast)
         {
             string dbTypeString = null;

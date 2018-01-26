@@ -37,6 +37,8 @@ namespace SZORM.Factory.MySql
             methodHandlers.Add("Min", Method_Min);
             methodHandlers.Add("Average", Method_Average);
 
+            methodHandlers.Add("IfNull", Method_IfNull);
+
             methodHandlers.Add("AddYears", Method_DateTime_AddYears);
             methodHandlers.Add("AddMonths", Method_DateTime_AddMonths);
             methodHandlers.Add("AddDays", Method_DateTime_AddDays);
@@ -303,7 +305,12 @@ namespace SZORM.Factory.MySql
             EnsureMethodDeclaringType(exp, typeof(SqlFun));
             Aggregate_Average(generator, exp.Arguments.First(), exp.Method.ReturnType);
         }
-
+        static void Method_IfNull(DbMethodCallExpression exp, SqlGenerator generator)
+        {
+            EnsureMethodDeclaringType(exp, typeof(SqlFun));
+            IfNull(generator, exp.Arguments.First(), exp.Method.ReturnType);
+        }
+        
 
         static void Method_DateTime_AddYears(DbMethodCallExpression exp, SqlGenerator generator)
         {
